@@ -19,7 +19,7 @@ he'll,he shall
 he'll've,he shall have 
 he's,he has 
 how's,how has 
-I'd I had 
+I'd,I had 
 I'd've,I would have
 I'll,I shall 
 I'll've,I shall have 
