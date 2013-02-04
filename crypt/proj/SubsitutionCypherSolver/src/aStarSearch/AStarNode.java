@@ -3,9 +3,9 @@ package aStarSearch;
 import java.util.ArrayList;
 
 public abstract class AStarNode {
-	private double hCost;
+	protected double hCost;
 	private int stepsToReach;
-	private ArrayList<AStarNode> children;
+	protected ArrayList<AStarNode> children;
 	private boolean amIRoot;
 	private boolean isLeaf = false;
 	private AStarNode parent;
@@ -52,7 +52,7 @@ public abstract class AStarNode {
 	}
 
 
-	public void makeChild()
+	public void makeChildren()
 	{}
 	
 }

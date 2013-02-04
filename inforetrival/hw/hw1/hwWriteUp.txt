@@ -1,0 +1,49 @@
+1.7
+Recommend a query processing order for
+d. (tangerine OR trees) AND 
+   (marmalade OR skies) AND 
+   (kaleidoscope OR eyes)
+
+(reordered)
+Term           Postings size
+trees                 316812
+skies                 271658
+eyes                  213312
+marmalade             107913
+kaleidoscope           87009
+tangerine              46653
+
+
+First (tangerine OR trees) because tangerine has the least
+Then (kaleidoscope OR eyes) because kaleidoscope is the next least
+Last (marmalade OR skies)
+
+
+1.8 
+If the query is:
+
+friends AND romans AND (NOT countrymen)
+
+how could we use the frequency of countrymen in
+evaluating the best query evaluation order? In 
+particular, propose a way of handling negation
+in determining the order of query processing.
+
+If countrymen is really frequent then it can be 
+used to remove documents by where it does not exist.
+Count for word X is (documents where word X occurs)
+For Word X the count for !X is 
+((number of total documents)-(documents where word X occurs))
+
+
+2.5
+Why are skip pointers not useful for queries of the form x OR y?
+
+Because you don't limit the number the number of documents with
+an 'OR' query. The skip lists would point to every document.
+
+
+
+
+
+
