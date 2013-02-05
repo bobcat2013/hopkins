@@ -3,6 +3,7 @@ package cypherSolver;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Set;
 
 public class TextGrader {
 
@@ -41,6 +42,42 @@ public class TextGrader {
 			out.put(temp,out.get(temp) + 1);
 		}
 		return out;
-		 
 	}
+	
+	public KeyHolder makeOptimalKeyHolderFromSigleLetterFrequency()
+	{
+		KeyHolder out = null;
+		HashMap<String,Integer> freqs =  letterFrequency();
+		String lettersInOrderOfFreq = "";
+		int bestCount=0;
+		String bestLetter = "";
+		Set<String> keySet = freqs.keySet();
+		for(int ii =0; ii<26; ii++)
+		{
+			bestCount = freqs.get(keySet.toArray()[0]);
+			bestLetter = (String)keySet.toArray()[0];
+			for(String key:keySet)
+			{
+				if(bestCount<freqs.get(key))
+				{
+					bestCount = freqs.get(key);
+					bestLetter = key;
+				}
+			}
+			keySet.remove(bestLetter);
+			lettersInOrderOfFreq+=bestLetter;
+		}
+		HashMap<String,String> keyBuilder = new HashMap<String,String>();
+		
+		try
+		{
+			out = new KeyHolder(" ");
+		}
+		catch (Throwable t)
+		{
+			t.printStackTrace();
+		};
+		return out;
+	}
+	
 }
