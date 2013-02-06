@@ -4,10 +4,12 @@ import java.util.ArrayList;
 
 public class KeyHolder {
 	private String key;
+	private ArrayList<String> dudList;
 	public KeyHolder(String inKey) throws Throwable
 	{
 		
 		key = inKey.toLowerCase();
+		dudList = new ArrayList<String>();
 		if(key.length()>26)
 		{
 			
@@ -19,6 +21,12 @@ public class KeyHolder {
 			throw new Throwable("Key is to small with "+key);
 		}
 			
+	}
+	
+	public void setDudList(ArrayList<String> dl)
+	{
+		this.dudList=dl;
+		return;
 	}
 	
 	public String getkey()
@@ -42,13 +50,24 @@ public class KeyHolder {
 		return outStr;
 	}
 	
+	public boolean areBothDuds(int a, int b)
+	{
+		if(this.dudList.size()<2)
+			return false;
+		String stra = "";
+		stra += this.key.charAt(a);
+		String strb = "";
+		strb += this.key.charAt(b);
+		return this.dudList.contains(stra) && this.dudList.contains(strb);
+	}
+	
 	public ArrayList<KeyHolder> makeNextSetOfKeys()
 	{
 		ArrayList<KeyHolder> keys = new ArrayList<KeyHolder>();
 		for(int ii =0; ii< 26; ii++)
 			for(int jj =0; jj<26; jj++)
 			{
-				if(ii!=jj)
+				if(ii!=jj && (!this.areBothDuds(ii, jj)))
 				{
 					String newKey = this.key;
 					char temp = newKey.charAt(jj);
