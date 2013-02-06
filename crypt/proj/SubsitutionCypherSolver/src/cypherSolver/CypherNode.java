@@ -7,10 +7,7 @@ import aStarSearch.AStarNode;
 public class CypherNode extends AStarNode {
 
 	private KeyHolder kh;
-	public CypherNode(int steps) {
-		super(steps);
-		
-	}
+
 	
 	public CypherNode(int steps, KeyHolder inKH) {
 		super(steps);
@@ -31,9 +28,8 @@ public class CypherNode extends AStarNode {
 		return children;
 	}
 	
-	/**
-	 * This is the method that will do all the work
-	 */
+	
+	
 	public double gethCost() {
 		
 		return hCost;

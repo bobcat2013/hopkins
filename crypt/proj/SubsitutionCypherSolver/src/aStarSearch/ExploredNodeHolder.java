@@ -3,7 +3,7 @@ package aStarSearch;
 import java.util.ArrayList;
 
 public class ExploredNodeHolder {
-private ArrayList<AStarNode> seenNodes;
+protected ArrayList<AStarNode> seenNodes;
 private double bestScore;
 
 public ExploredNodeHolder()

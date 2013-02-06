@@ -2,12 +2,12 @@ package aStarSearch;
 
 public class AStarSearcher {
 
-	public AStarNode root;
 	private ExploredNodeHolder exploredNodes;
 	private VistedNodeHolder vistNodes;
-	public AStarSearcher(AStarNode inRoot)
+	public AStarSearcher(AStarNode inRoot, ExploredNodeHolder enh)
 	{
-		root = inRoot;
+		exploredNodes=enh;
+		vistNodes = new VistedNodeHolder();
 	}
 	
 	public AStarNode step()

@@ -8,12 +8,14 @@ public abstract class AStarNode {
 	protected ArrayList<AStarNode> children;
 	private boolean amIRoot;
 	private boolean isLeaf = false;
+	private boolean isScored;
 	private AStarNode parent;
 	
 	public AStarNode(int steps)
 	{
 		amIRoot = (steps==0);
 		stepsToReach = steps;
+		isScored = false;
 	}
 	
 	public AStarNode(int steps, AStarNode givenP)
@@ -21,6 +23,17 @@ public abstract class AStarNode {
 		amIRoot = (steps==0);
 		stepsToReach = steps;
 		parent = givenP;
+		isScored = false;
+	}
+	public boolean scored()
+	{
+		return this.isScored;
+	}
+	
+	public void setCost(double in)
+	{
+		this.isScored=true;
+		this.hCost=in;
 	}
 	
 	public AStarNode getParent()
