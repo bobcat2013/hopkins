@@ -82,6 +82,7 @@ public class KeyHolder {
 					
 					try {
 						keys.add(new KeyHolder(newKey));
+						keys.get(keys.size()-1).setDudList(dudList);
 					} catch (Throwable e) {
 						System.out.println("How did the generation new keys get messed up?");
 					}

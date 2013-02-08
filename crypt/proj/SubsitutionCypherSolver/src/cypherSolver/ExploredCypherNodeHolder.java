@@ -6,27 +6,33 @@ import aStarSearch.AStarNode;
 import aStarSearch.ExploredNodeHolder;
 
 public class ExploredCypherNodeHolder extends ExploredNodeHolder{
-	private TextGrader grader;
+	public TextGrader grader;
+	private CypherNode root;
 	public ExploredCypherNodeHolder(String txt)
 	{
 		grader = new TextGrader(txt);
 		grader.loadWordList();
-		CypherNode root = new CypherNode(0);
-		root.
-		grader.makeOptimalKeyHolderFromSigleLetterFrequency();
+		root = new CypherNode(0, grader.makeOptimalKeyHolderFromSigleLetterFrequency());
+		seenNodes.add(root);
 	}
 	
 	
-	public AStarNode visitBestNode()
+	public CypherNode visitBestNode()
 	{
-		AStarNode bestNode  = seenNodes.get(0);
+		CypherNode bestNode  =  (CypherNode) seenNodes.get(0);
 		seenNodes.remove(0);
 		ArrayList<AStarNode> children =  bestNode.getChildren();
+		ArrayList<KeyHolder> newKeys = bestNode.getKeyHoldersFromKids();
+		ArrayList<Double> scores = new ArrayList<Double>();
+		for(KeyHolder key : newKeys)
+		{
+			scores.add(this.grader.grade(key));
+		}
+		bestNode.setChildrenCost(scores);
 		for(AStarNode child :children)
 		{
 			this.addNewNode(child);
 		}
-		
 		return bestNode;
 	}
 	

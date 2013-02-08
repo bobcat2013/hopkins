@@ -11,9 +11,9 @@ import java.util.Set;
 
 public class TextGrader {
 
-	private static final String alphabet = "abcdefghijklmnopqrstuvwxyz";
-	private static final String lettersInOrderOfFrequency = "etaoinshrdlcumwfgypbvkjxqz";
-	private static final String listOfWordsFilePath = "/home/han/5000MostCommonWords.txt";
+	public static final String alphabet = "abcdefghijklmnopqrstuvwxyz";
+	public static final String lettersInOrderOfFrequency = "etaoinshrdlcumwfgypbvkjxqz";
+	public static final String listOfWordsFilePath = "/home/han/5000MostCommonWords.txt";
 	private boolean loaded;
 	private String text;
 	private HashMap<Integer,ArrayList<String>> wordHolder;
@@ -117,6 +117,27 @@ public class TextGrader {
 			this.loadWordList();
 		for(int length: this.wordHolder.keySet())
 			out += length*findMatchingWordsOfCertainLength(length, tranText);
+		return out;
+	}
+	
+	public static String fileToStrings(String filename)
+	{
+		String out = "";
+		BufferedReader br;
+		try {
+			br = new BufferedReader(new FileReader(filename));
+			String line;
+			while ((line = br.readLine()) != null) {
+				out += line.trim().toLowerCase();
+			}
+			br.close();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return out;
 	}
 

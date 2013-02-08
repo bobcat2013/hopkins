@@ -2,9 +2,9 @@ package aStarSearch;
 
 public class AStarSearcher {
 
-	private ExploredNodeHolder exploredNodes;
+	protected ExploredNodeHolder exploredNodes;
 	private VistedNodeHolder vistNodes;
-	public AStarSearcher(AStarNode inRoot, ExploredNodeHolder enh)
+	public AStarSearcher(ExploredNodeHolder enh)
 	{
 		exploredNodes=enh;
 		vistNodes = new VistedNodeHolder();

@@ -14,6 +14,27 @@ public class CypherNode extends AStarNode {
 		kh = inKH;
 	}
 
+	public KeyHolder getKeyHolder()
+	{
+		return this.kh;
+	}
+	
+	public ArrayList<KeyHolder> getKeyHoldersFromKids()
+	{
+		ArrayList<KeyHolder> outKeys = new ArrayList<KeyHolder>();
+		for(AStarNode childAStarNode : this.children)
+			outKeys.add(((CypherNode)childAStarNode).getKeyHolder());
+		return outKeys;
+	}
+	
+	public void setChildrenCost(ArrayList<Double> scores)
+	{
+		for(int ii=0; ii<scores.size(); ii++)
+		{
+			children.get(ii).setCost(scores.get(ii));
+		}
+	}
+	
 	public void makeChildren()
 	{
 		for(KeyHolder key : kh.makeNextSetOfKeys())
