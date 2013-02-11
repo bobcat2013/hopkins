@@ -26,9 +26,9 @@ public void addNewNode(AStarNode newNode)
 		return;
 	}
 	
-	for(int ii = 0; ii< this.seenNodes.size(); ii++)
+	for(int ii =0; ii < this.seenNodes.size(); ii++)
 	{
-		if(newNode.gethCost()<seenNodes.get(ii).gethCost())
+		if((newNode.gethCost() - newNode.getDepth() )>(seenNodes.get(ii).gethCost() - seenNodes.get(ii).getDepth()))
 		{
 			seenNodes.add(ii,newNode);
 			break;

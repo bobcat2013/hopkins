@@ -44,7 +44,7 @@ public class CypherNode extends AStarNode {
 	public ArrayList<AStarNode> getChildren() {
 		if(children.size()==0)
 		{
-			makeChildren();
+			this.makeChildren();
 		}
 		return children;
 	}
@@ -53,7 +53,7 @@ public class CypherNode extends AStarNode {
 	
 	public double gethCost() {
 		
-		return hCost;
+		return hCost -this.getDepth();
 	}
 	
 }

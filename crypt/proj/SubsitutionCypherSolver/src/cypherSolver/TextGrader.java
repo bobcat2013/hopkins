@@ -13,7 +13,7 @@ public class TextGrader {
 
 	public static final String alphabet = "abcdefghijklmnopqrstuvwxyz";
 	public static final String lettersInOrderOfFrequency = "etaoinshrdlcumwfgypbvkjxqz";
-	public static final String listOfWordsFilePath = "/home/han/5000MostCommonWords.txt";
+	public static final String listOfWordsFilePath = "/home/bobcat/gits/hopkins/crypt/data/5000MostCommonWords.txt";
 	private boolean loaded;
 	private String text;
 	private HashMap<Integer,ArrayList<String>> wordHolder;

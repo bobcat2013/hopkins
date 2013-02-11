@@ -8,12 +8,14 @@ import aStarSearch.ExploredNodeHolder;
 public class ExploredCypherNodeHolder extends ExploredNodeHolder{
 	public TextGrader grader;
 	private CypherNode root;
+	public double bestScore = 0;
 	public ExploredCypherNodeHolder(String txt)
 	{
 		grader = new TextGrader(txt);
 		grader.loadWordList();
 		root = new CypherNode(0, grader.makeOptimalKeyHolderFromSigleLetterFrequency());
 		seenNodes.add(root);
+		bestScore = 0;
 	}
 	
 	

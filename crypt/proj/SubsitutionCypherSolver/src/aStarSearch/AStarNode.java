@@ -16,6 +16,7 @@ public abstract class AStarNode {
 		amIRoot = (steps==0);
 		stepsToReach = steps;
 		isScored = false;
+		children = new ArrayList<AStarNode>();
 	}
 	
 	public AStarNode(int steps, AStarNode givenP)
@@ -24,6 +25,7 @@ public abstract class AStarNode {
 		stepsToReach = steps;
 		parent = givenP;
 		isScored = false;
+		children = new ArrayList<AStarNode>();
 	}
 	public boolean scored()
 	{
