@@ -8,10 +8,15 @@ public class Solver implements Runnable  {
 	public CypherSearcher cs;
 	public int timeBetweenRuns =0;
 	public boolean timeSet = false;
-
+	
 	public Solver(String in)
 	{
 		cs = new CypherSearcher(in);
+	}
+	public Solver(String in, String wordlist)
+	{
+		cs = new CypherSearcher(in, wordlist);
+		
 	}
 
 	public Solver(String in, int time)
@@ -39,24 +44,21 @@ public class Solver implements Runnable  {
 	public static void main(String args[]) throws InterruptedException
 	{
 		
-		if(!(args.length==1 || args.length==2))
+		if(!(args.length==2))
 		{
 			System.out.println("How to use:");
-			System.out.println("java Solver fileToRead");
-			System.out.println("java Solver fileToRead SecondsToPauseEachStep");
+			System.out.println("java Solver wordlist fileToRead");
 			return;
 		}
 
 
-		String textFromFile = TextGrader.fileToStrings(args[0]);
+		String textFromFile = TextGrader.fileToStrings(args[1]);
 		System.out.println("Intial Jumbled Text:");
 		System.out.println(textFromFile);
 
 		Solver solver = null;
-		if(args.length==1)
-			solver = new Solver(textFromFile);
 		if(args.length==2)
-			solver = new Solver(textFromFile,Integer.parseInt(args[1]));
+			solver = new Solver(textFromFile,args[0]);
 
 		/*String testStr = "not q";
 		System.out.println("Press q to quit:");
@@ -86,13 +88,14 @@ public class Solver implements Runnable  {
 			//System.out.println("Press q to quit:");
 			//testStr = readLine();
 		}
-		while(lastBestScore < bestScore);
-		
+		while(true);/*lastBestScore < bestScore);*/
+		/*
 		System.out.println("Finished searching after "+steps +" steps");
 		System.out.println("Best Key:");
 		System.out.println(bestKey);
 		System.out.println("Best Translation:");
 		System.out.println(translation);
+		*/
 	}
 
 	@Override
