@@ -1,0 +1,60 @@
+(1) Write a brief overview of what you did and  
+explain the format of your lexicon and your inverted file.
+
+I read through the paragraphs one by one extracting the
+text into an array of words. Then after reading a paragraph
+into an array of words, I then roll through the words 
+adding them two the python dict datatypes.
+The dictionary is a string to interger mapping that
+is incrememted once per paragraph.
+The inverted file tree is a string to list of list map
+that for every word points to a list of lists
+where each sublist is two elements long with 
+the document id and the number of times the term occurs
+in the document.
+
+
+
+(2) Report the number of documents, 
+	31103 documents
+size of the vocabulary
+	12336 words in vocabulary
+and total number of terms observed in the collection.
+	788078 terms in the collections
+
+(3) Report the file sizes for your dictionary 
+	196912 bytes in the dictionary
+and the inverted file (in bytes).
+	8289429 bytes in the inverted file
+Is your index smaller than the original text? 
+	No
+Which takes up more space, the dictionary or the inverted file?
+T	he inverted file is bigger
+
+Would you recommend trying to reduce the size of the inverted 
+file by compressing the file with 'gzip'? 
+Why is this, or why is this not a good idea?
+
+Using gzip would be bad idea becuase gzip needs repeated
+data to compress a file.
+
+Express the numbers {17, 32, and 500} three ways: 
+using a 16-bit binary representation, and using the gamma 
+and delta codes discussed in class.
+16-bit					gamma				delta
+0000000000010001		000010001			001010001
+0000000000100000		000001100000		0011010
+0000000111110100		000000001111110100	1001001000
+
+Suppose when evaluating a 10-word query with the vector 
+space model (cosine, with TF/IDF term weighting) the 
+number of documents to be scored is enormous (like 1 billion). 
+Describe a scheme to find 100 relatively good 
+documents without fully traversing every posting entry 
+in every term's posting list?
+
+Take the 10 word query and using your vector model
+find the term that is the rarest using the lowest
+of the tf–idf weights of the 10
+then using this smaller set of of documents 
+see if the rest of the documents.
