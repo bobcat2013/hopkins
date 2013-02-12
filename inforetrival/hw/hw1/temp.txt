@@ -1,0 +1,39 @@
+Nunber of documents 1862
+Number of unique words seen 6336
+Number of words seen 120084
+Number of words that only appear in one document 2475
+Percent of words that only appear in one document 39.0625 %
+Word       Rank       Frequency  # of Docs  
+to         0          4116       1203       
+the        1          4104       1138       
+of         2          3572       1097       
+and        3          3491       1166       
+her        4          2551       818        
+a          5          2092       930        
+i          6          2004       635        
+in         7          1979       913        
+was        8          1861       774        
+it         9          1757       849        
+she        10         1613       700        
+that       11         1385       774        
+be         12         1305       722        
+for        13         1262       702        
+not        14         1248       772        
+as         15         1221       625        
+you        16         1191       558        
+he         17         1108       542        
+his        18         1021       455        
+had        19         998        533        
+with       20         992        613        
+but        21         886        637        
+at         22         839        560        
+have       23         819        490        
+is         24         760        469        
+by         25         750        489        
+on         26         696        472        
+elinor     27         685        586        
+all        28         656        454        
+so         29         643        426        
+soon       100        181        163        
+misery     500        28         26         
+distance   1000       12         12         

@@ -29,7 +29,7 @@ and the inverted file (in bytes).
 Is your index smaller than the original text? 
 	No
 Which takes up more space, the dictionary or the inverted file?
-T	he inverted file is bigger
+	The inverted file is bigger
 
 Would you recommend trying to reduce the size of the inverted 
 file by compressing the file with 'gzip'? 
@@ -41,8 +41,8 @@ data to compress a file.
 Express the numbers {17, 32, and 500} three ways: 
 using a 16-bit binary representation, and using the gamma 
 and delta codes discussed in class.
-16-bit					gamma				delta
-0000000000010001		000010001			001010001
+16-bit				gamma			delta
+0000000000010001		000010001		001010001
 0000000000100000		000001100000		0011010
 0000000111110100		000000001111110100	1001001000
 
