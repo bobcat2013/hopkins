@@ -26,6 +26,7 @@ public class ExploredCypherNodeHolder extends ExploredNodeHolder{
 		grader = new TextGrader(txt,wordList);
 		grader.loadWordList();
 		root = new CypherNode(0, grader.makeOptimalKeyHolderFromSigleLetterFrequency());
+		root.kh.setDudList(grader.getListOfZeros(grader.letterFrequency()));
 		seenNodes.add(root);
 		bestScore = 0;
 		usedStrings = new ArrayList<String>();

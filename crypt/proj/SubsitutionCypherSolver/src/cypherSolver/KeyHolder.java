@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class KeyHolder {
 	private String key;
-	private ArrayList<String> dudList;
+	public ArrayList<String> dudList;
 	public KeyHolder(String inKey) throws Throwable
 	{
 		

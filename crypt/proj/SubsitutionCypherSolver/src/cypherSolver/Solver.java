@@ -72,6 +72,8 @@ public class Solver implements Runnable  {
 		do
 		{
 			CypherNode cn = solver.cs.step();
+			System.out.println("There are "+cn.getKeyHolder().dudList.size()+" duds");
+			System.out.println("there are "+solver.cs.ecnh.grader.getListOfZeros(solver.cs.ecnh.grader.letterFrequency()).size()+" zeros");
 			System.out.println("Best Score:");
 			lastBestScore = bestScore;
 			bestScore = cn.gethCost();
