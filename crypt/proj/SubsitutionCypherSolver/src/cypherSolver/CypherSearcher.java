@@ -14,6 +14,11 @@ public class CypherSearcher {
 		ecnh = new ExploredCypherNodeHolder(inTxt);
 		vnh = new VistedNodeHolder();
 	}
+	public CypherSearcher(String inTxt, String wl)
+	{
+		ecnh = new ExploredCypherNodeHolder(inTxt, wl);
+		vnh = new VistedNodeHolder();
+	}
 	public CypherNode step()
 	{
 		CypherNode best = this.ecnh.visitBestNode();

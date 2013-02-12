@@ -6,7 +6,7 @@ import aStarSearch.AStarNode;
 
 public class CypherNode extends AStarNode {
 
-	private KeyHolder kh;
+	public KeyHolder kh;
 
 	
 	public CypherNode(int steps, KeyHolder inKH) {

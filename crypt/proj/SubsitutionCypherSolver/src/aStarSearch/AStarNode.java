@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public abstract class AStarNode {
 	protected double hCost;
 	private int stepsToReach;
-	protected ArrayList<AStarNode> children;
+	public ArrayList<AStarNode> children;
 	private boolean amIRoot;
 	private boolean isLeaf = false;
 	private boolean isScored;
