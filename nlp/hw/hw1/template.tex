@@ -1,0 +1,95 @@
+\documentclass[10pt]{article}         %% What type of document you're writing.
+
+%%%%% Preamble
+
+%% Packages to use
+
+\usepackage{amsmath,amsfonts,amssymb}   %% AMS mathematics macros
+
+%% Title Information.
+
+\title{Hw 1}
+\author{Matthew Yates}
+%% \date{2 July 2004}           %% By default, LaTeX uses the current date
+
+%%%%% The Document
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+This is my homework.
+\end{abstract}
+
+\section{Chapter 1 Problem 2}
+\subsection{Question}
+ In considering the distinction between knowledge and belief in this book,
+ we take the view that belief is fundamental, and that knowledge is simply
+ belief where the outside world happens to be cooperating (the belief is true,
+ is arrived at by appropriate means, is held for the right reasons, and so on).
+ Describe an interpretation of the terms where knowledge is taken to be basic,
+ and belief is understood in terms of it.
+
+\subsection{Answer}
+Belief is that E=Mc\^2. Knowledge is proof that through general relitivity that
+mass multiplied speed of light squared is the amount of energy if annihilated.
+
+\section{Chapter 1 Problem 4}
+\subsection{Question}
+It has become fashionable to attempt to achieve intelligent behaviour in AI
+systems without using propositional representations. Speculate on what such
+a system should do when reading a book on South American geography.
+\subsection{Answer}
+While reading a book on South American geography the AI would start to build
+a knowledge base, by writing rules linking mountians to Andes and such.
+By the end there would be many rules linking many other topics.
+
+\section{Chapter 1 Problem 5}
+\subsection{Question}
+Describe some ways in which the ﬁrst-hand knowledge we have of some
+topic goes beyond what we are able to write down in a language.
+What accounts for our inability to express this knowledge?
+
+\subsection{Answer}
+It is impossible to completly define some very simple concepts
+such as joy and saddness with out resulting in using synonyms.
+It is because people apply difficult to define emotions to simple words.
+
+
+\section{Chapter 2 Problem 1}
+\subsection{Question}
+For each of the following sentences, give a logical interpretation that makes
+that sentence false and the other two sentences true:
+
+For any x, any y and any z (P(x,y) and P(y,z) ) entails P(x,z)
+For any x and  any y  (P(x,y) and P(y,x) ) entails (x = y)
+For any x and  any y  (P(a,y) ) entails (P(x,b))
+
+\subsection{Answer}
+
+\section{Chapter 2 Problem 4}
+\subsection{Question}
+In a certain town, there are the following regulations
+concerning the town barber:
+
+Anyone who does not shave himself must be shaved
+by the barber.
+
+Whomever the barber shaves, must not shave himself.
+
+Show that no barber can fulﬁll these requirements. That is, formulate the
+requirements as sentences of FOL, and show that in any interpretation where
+the ﬁrst regulation is true, the second one must be false.
+(This is called the barber’s paradox and is due to Bertrand Russell.)
+
+\subsection{Answer}
+1. For any x element of the set Town Members, if not(shavedBy(x,x)) then shavedBy(x,Barber)
+2. For any x element of the set Town Members, if shavedBy(x,Barber) then not(shavedBy(x,x))
+
+if x=Barber then
+1. if not(shavedBy(Barber,)) then shavedBy(Barber,Barber)  is a Paradox
+2. if shavedBy(Barber,Barber) then not(shavedBy(Barber,Barber)) is a Paradox
+
+\end{document}
+
