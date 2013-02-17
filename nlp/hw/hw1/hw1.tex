@@ -1,0 +1,103 @@
+\documentclass[10pt]{article}        
+\newcommand{\suchthat}{\;\ifnum\currentgrouptype=16 \middle\fi|\;}
+\usepackage{amsmath,amsfonts,amssymb,enumerate}   
+\title{Hw 1}
+\author{Matthew Yates}
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+	This is my homework. I got tired of using liber office 
+	to write logical symbols so I am going to use Latex.
+\end{abstract}
+
+\section{Chapter 1 Problem 2}
+\subsection{Question}
+In considering the distinction between knowledge and belief in this book,
+we take the view that belief is fundamental, and that knowledge is simply
+belief where the outside world happens to be cooperating (the belief is true,
+is arrived at by appropriate means, is held for the right reasons, and so on).
+Describe an interpretation of the terms where knowledge is taken to be basic,
+and belief is understood in terms of it.
+
+\subsection{Answer}
+Belief is that $E=Mc^{2}$. Knowledge is proof that through
+general relativity that mass multiplied speed of light 
+squared is the amount of energy gained if an amount
+of matter is annihilated. 
+
+Knowledge is how all of the various concepts are linked together.
+
+\section{Chapter 1 Problem 4}
+\subsection{Question}
+It has become fashionable to attempt to achieve intelligent behavior in AI
+systems without using propositional representations. Speculate on what such
+a system should do when reading a book on South American geography.
+
+\subsection{Answer}
+While reading a book on South American geography the AI would start to build
+a knowledge base, by writing rules linking mountains to Andes and such.
+By the end there would be many rules linking many other topics.
+
+\section{Chapter 1 Problem 5}
+\subsection{Question}
+Describe some ways in which the ﬁrst-hand knowledge we have of some
+topic goes beyond what we are able to write down in a language.
+What accounts for our inability to express this knowledge?
+
+\subsection{Answer}
+It is impossible to completely define some very simple concepts
+such as joy and sadness with out resulting in using synonyms.
+It is because people apply difficult to define emotions to simple words.
+
+\section{Chapter 2 Problem 1}
+\subsection{Question}
+For each of the following sentences, give a logical interpretation that makes
+that sentence false and the other two sentences true:
+
+\begin{enumerate}
+	\item $ \forall x $ and $\forall y $ and $\forall z \suchthat  P(x,y) \land P(y,z) \models P(x,z) $
+	\item $ \forall x $ and $\forall y \suchthat  P(x,y) \land P(y,x)  \models (x = y) $
+	\item $ \forall x $ and $\forall y \suchthat  P(a,y) \models P(x,b) $
+\end{enumerate}
+
+\subsection{Answer}
+
+\begin{enumerate}
+	\item $ P(q,p) {(q \equiv a) \lor (p \equiv b) \lor (p \equiv True) } $
+	\item $ P(q,p) {True} $
+	\item $ P(q,p) {q \models p }  $
+\end{enumerate}
+
+\section{Chapter 2 Problem 4}
+\subsection{Question}
+In a certain town, there are the following regulations
+concerning the town barber:
+
+Anyone who does not shave himself must be shaved
+by the barber.
+
+Whomever the barber shaves, must not shave himself.
+
+Show that no barber can fulﬁll these requirements. That is, formulate the
+requirements as sentences of FOL, and show that in any interpretation where
+the ﬁrst regulation is true, the second one must be false.
+(This is called the barber’s paradox and is due to Bertrand Russell.)
+
+\subsection{Answer}
+
+\begin{enumerate}
+	\item $\forall x \in Town-Members \suchthat \lnot shavedBy(x,x) \to shavedBy(x,Barber) $
+	\item $\forall x \in Town-Members \suchthat shavedBy(x,Barber) \to \lnot shavedBy(x, x) $
+\end{enumerate}
+
+But Town Member x is the Barber both of the statements become a paradox
+
+\begin{enumerate}  
+	\item $ \lnot(shavedBy(Barber,Barber)) \to shavedBy(Barber,Barber)$
+	\item $ shavedBy(Barber,Barber) \to \lnot shavedBy(Barber,Barber)$
+\end{enumerate} 
+
+\end{document}
+
