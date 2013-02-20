@@ -1,8 +1,12 @@
 #!/usr/bin/python
+# Matthew Yates
+# Information Retrieval
+# homework #2
 import string
 import sys
 import pickle
-
+import array
+import struct
 
 # saves a object to a file
 # found this function from 
@@ -57,6 +61,7 @@ def getAParagrah(inFile):
     return [idnum,outText]
 
 
+
 # This fuction perform some normalization of the text.  
 # everything is lowercased then contractions are broken up
 # then remaining 's are removed
@@ -80,7 +85,10 @@ def normalizeText(text):
     # return the array
     return words
 
-
+# this builds an inverted file by using an array of strings
+# then building a lists of pairs of docids frequencies
+# with each list stored in a hash table with the
+# the unique terms as the keys
 def buildInvFile(dictionary,invertedFile,wordArray,docId):
     wordsSeen = []
     for word in wordArray:
@@ -102,6 +110,30 @@ def buildInvFile(dictionary,invertedFile,wordArray,docId):
             invertedFile[word] = [[docId,1]]
     return [dictionary,invertedFile]
 
+# this takes a dictionary which is a hashmap
+# of strings to documents that the word appears in
+# and the invertedFile which is a hashmap of
+# term to postings list and returns a list of postings
+# lists sorted by the terms alphabeticaly
+# it also returns the dictionary as a hashmap
+# of terms to their position in the list of 
+# postings lists and the number of postings
+def makeBinaryInvertedFile(dictionary,invertedFile):
+    words =  dictionary.keys()
+    words.sort()
+    pointers = []
+    dictionaryImpv = {}
+    binInvtFile = []
+    place =0
+    for word in words:
+        docLists = invertedFile[word]
+        dictionaryImpv[word] = [dictionary[word],place]
+        for pair in docLists:
+            binInvtFile.append([int(pair[0]),int(pair[1])])
+            place += 1
+    return [dictionaryImpv,binInvtFile]
+
+
 # the actual program
 # first check for an argumrnt
 if len(sys.argv) != 2:
@@ -118,27 +150,47 @@ paragraph = getAParagrah(tagedFile)
 paragraphCount = 0
 dictionary = {}
 invertedFile = {}
+# loop till a empty paragraph is read
 while(paragraph):
     paragraphCount += 1
-    [dictionary,invertedFile] = buildInvFile(dictionary,invertedFile, normalizeText(paragraph[1]),paragraph[0])
+    [dictionary,invertedFile] = buildInvFile(dictionary,invertedFile,
+    normalizeText(paragraph[1]),paragraph[0])
     paragraph = getAParagrah(tagedFile)
 print str(paragraphCount)+" paragraphs read in"
+# convert the hashmap to a list
+[dictionaryImpv,binInvtFile] = makeBinaryInvertedFile(dictionary,invertedFile)
+print "deleting the temporary"
+del invertedFile
+del dictionary
+# convert the list of posting lists
+# to a single list of 2 byte ints
+invertedFile = array.array('H')
+for pair in binInvtFile:
+    invertedFile.append(pair[0])
+    invertedFile.append(pair[1])
 
 print "saving the inverted file and dictonary"
-saveobject(dictionary, "dict.bin")
+saveobject(dictionaryImpv, "dict.bin")
 saveobject(invertedFile, "invtfile.bin")
+
 print "deleting the inverted file and dictonary"
-del dictionary
+del dictionaryImpv
+del binInvtFile
 del invertedFile
+
 print "reloading the inverted file and dictonary"
+binInvtFile = loadobject("invtfile.bin")
 dictionary = loadobject("dict.bin")
-invertedFile = loadobject("invtfile.bin")
 
 print str(len(dictionary.keys()))+" many terms"
 totalcount =0
-for word in dictionary.keys():
-	for pair in invertedFile[word]:
-		totalcount += pair[1]
+skip = True
+for num in binInvtFile:
+    if(skip):
+        skip = False
+    else:
+        skip = True
+        totalcount += num
 
 print str(totalcount)+" total terms read"
 
@@ -151,15 +203,17 @@ onlyFreqs = ["bread", "lovingkindness", "sarah", "sing"]
 # print out all the info
 for word in listToPrintFreqsAndOccurances:
     if word in dictionary: 
-        print word+ " is in " + str(dictionary[word])+" documents"
-        for pair in invertedFile[word]:
-            print word+ " is in document #" + str(pair[0])+" "+ str(pair[1])+" time"
+        print word+ " is in " + str(dictionary[word][0])+" documents"
+        for index in xrange(dictionary[word][1]*2,
+        dictionary[word][1]*2+dictionary[word][0]*2,2):
+            print( word+ " is in document #" + str(binInvtFile[index])
+                    +" "+ str(binInvtFile[index+1])+" time")
     else:
         print word+ " is in 0 documents"
 
 for word in onlyFreqs:
     if word in dictionary:
-        print word+ " is in " + str(dictionary[word])+ " documents"
+        print word+ " is in " + str(dictionary[word][0])+ " documents"
     else:
         print word+ " is in 0 documents"
 
