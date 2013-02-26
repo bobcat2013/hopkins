@@ -237,5 +237,35 @@ public class TextGrader {
 		};
 		return out;
 	}
+	public static void main(String args[])
+	{
+		if(args.length!= 2)
+		{
+			System.out.println("need a file to read in");
+			return;
+		}
+		System.out.println("Vigenere Cipher Breaker");
+		System.out.println("reading in file at "+args[0]);
+		String text = "";
+		text += fileToStrings(args[0]);
+		int textlen = text.length();
+		if(textlen==0)
+		{
+			System.out.println("No text in "+args[0]+" quiting");
+			return;
+		}
+		System.out.println("Read file "+args[0]+" with " + textlen+" chars");
+
+		ArrayList<String> samples;
+		for(int ii=1; ii<=textlen; ii++)
+		{
+			samples = new ArrayList<String>();
+			for(int jj=0;jj<ii;jj++)
+				samples.add("");
+			for(int jj=0;jj<textlen; jj++)
+				samples.set(jj%ii, samples.get(jj%ii)+ text.charAt(jj));
+			
+		}
+	}
 
 }
