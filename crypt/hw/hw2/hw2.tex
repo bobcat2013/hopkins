@@ -1,0 +1,110 @@
+\documentclass[10pt]{article}        
+\newcommand{\suchthat}{\;\ifnum\currentgrouptype=16 \middle\fi|\;}
+\usepackage{amsmath,amsfonts,amssymb,enumerate}   
+\title{Hw 1}
+\author{Matthew Yates}
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+	This is my homework. I copy and paste text from the eBook and latex is easier to use
+	with raw text symbols so I am going to use Latex.
+\end{abstract}
+
+\section{Breaking a Vigenere Cipher}
+\subsection{Cipher Text}
+
+VGKGGVQINMVNGEITBFOVWBBBEMCBBN
+YPUBGYVOATZVGXHXSZCXUTHGVGWGRL
+BYDTJRGSOMCPXMPPWGUWQVVSHVJBHH
+EIWLMBHGDHCFREBHCYGEGXGVAEHEHU
+RPQFPRESBXJRECOHFGGLWMVRPSIXGN
+PVKLGFBXDTHGUIGGCJYIZZSJUMYAAV
+TLPUSHFIBNZGBLEFURGWYKCJQIZHIG
+BVWMPRFXELXHZFHXRHCAEMVNYSPHTB
+GLAKHUVRCLGBGLWMVRUEOTRVSJEVIY
+GCEGZNLMJZVVFLWGRFHTKGWGASSMVR
+FOEETHYAKKYZNRELJRECYTFRSYHBBQ
+RIZTGGBADTHURXWDSFVRPHVVFFNTWA
+UISBZYUERXBBGLEGUOHXPASGBSHLKU
+VGDFOLUIHIVVZMJWCVAKDBGJBVGUIG
+BJPASFRLAAOFNPWKURNWOHFGZIJMOA
+QEHEWAGLAFCFGTAKTRPXKKRREMPBGN
+ZMOMOXRXKMVVAOPAOGGLWMZVGXHXFB
+BQDTGRYEOMWPJEHEGNAHYTBQVWPXBQ
+GSWGMRKXAGHQRTAGRHCSJBHGUINXQB
+ZIOTHVZISASASSNXJRECWWRVGMKGCS
+XRKPZRQKARCHSSNZSGFSIXHUVRCMVN
+GCKNYARAXXTBEIEMWFBJPASUVKDXGG
+VQLHFGNRYXHURVAYCERRKMHBUERXIF
+RPALGSNGPLSYOSSBBTBYPMVRHWAYIY
+
+\subsection{Answer}
+I consider that a man's brain originally is like a little empty attic, 
+and you have to stock it with such furniture as you choose. A fool takes 
+in all the lumber of every sort that he comes across, so that the knowledge
+which might be useful to him gets crowded out, or at best is jumbled
+up with a lot of other things, so that he has a difficulty in laying his 
+hands upon it. Now the skillful workman is very careful indeed as to what
+he takes into his brain-attic. He will have nothing but the tools which
+may help him in doing his work, but of these he has a large assortment,
+and all in the most perfect order. It is a mistake to think that that
+little room has elastic walls and can distend to any extent. Depend 
+upon it there comes a time when for every addition of knowledge you forget 
+something that you knew before. It is of the highest importance, 
+therefore, not to have useless facts elbowing out the useful ones.
+
+-- Arthur Conan Doyle, A Study in Scarlet
+
+\section{Chapter 1 Problem 28}
+\subsection{Question}
+Decrypt the following ciphertext, obtained from the Autokey Cipher, by using exhaustive
+key search.
+
+\subsection{Cipher Text}
+MALVVMAFBHBUQPTSOXALTGVWWRG
+
+\subsection{Answer}
+
+
+\section{Problem 3.3}
+\subsection{Question from book}
+Let DES(x, K) represent the encryption of plaintext x with key K using the DES
+cryptosystem. Suppose $y = DES (x, K)$ and $y^\prime  = DES (c(x), c(K))$, where $c(-)$ denotes the bitwise
+complement of its argument. Prove that $y^\prime  = c(y)$ (i.e., if we complement the plaintext and the
+key, then the ciphertext is also complemented). Note that this can be proved using only the “high-
+level” description of DES — the actual structure of S-boxes and other components of the system
+are irrelevant.
+
+\subsection{Answer}
+
+
+
+
+\section{Problem based off 1.29}
+\subsection{Explanation and Problem from the book}
+We describe a stream cipher that is a modification of the Vigenere Cipher. Given a keyword
+$(K_{1}, . . . , K_{m})$ of length m, construct a keystream by the rule 
+$z_{i} = K_{i} (1 ≤ i ≤ m), z_{i} + m = z_{i} + 1 mod 26 (i \geq m + 1)$. In other words, each time we use the keyword, we replace each letter by its
+successor modulo 26. For example, if SUMMER is the keyword, we use SUMMER to encrypt the
+first six letters, we use TVNNFS for the next six letters, and so on.
+Describe how you can use the concept of index of coincidence to first determine the length of the
+keyword, and then actually find the keyword.
+\subsection{Cipher Text}
+DERMSPQGGFBCLAFZZQXICUBJWNPACC
+PFXNGPHRBMWQSJIWWAFFNLXEUVTNJD
+UXHDYTOEUYQEXMEOPYQPYGUQJDHOSC
+YYRZDVFWBZCNTUTJEGIFLHQUBDDHYT
+RYISHNLTYFMERLVEWSMBDSWBCVPXPO
+ZDZYJDUERIJDPPYTICEHQQLCZIDEQU
+NKQVCTZVTPFZHKXUTMUJAPMITNDXJZ
+AGUQUKOQDCBLVKWWONCLGCWMLUGNNG
+YIQHSSITLALNPHUQOYVYCIUMHNDFBH
+RDNLILFMCMNYOFASUWCLXGLFRJTDPF
+
+\subsection{Answer}
+
+
+\end{document}
+
